@@ -1,0 +1,23 @@
+<div class="hits-header">
+    <div class="hits-nav" (click)="toggleSidenav()">
+        <fa-icon [icon]="navIcon"></fa-icon>
+    </div>
+    <div class="hits-title">{{resourceTitle}}</div>
+    <div class="hits-links">
+        <a *ngFor="let link of navList" class="h-link" routerLink="{{link.linkRoute}}">{{link.linkName}}</a>
+    </div>
+    <div class="hits-cart">
+        <fa-icon [icon]="cartIcon"></fa-icon>
+    </div>
+</div>
+<div class="hits-sidenav" [ngClass]="{ 'sidenav-hidden': !isOpen, 'sidenav-visible': isOpen }">
+    <div class="hits-s-nav" (click)="toggleSidenav()">
+        <fa-icon [icon]="closeIcon"></fa-icon>
+    </div>
+    <div class="hits-s-title">{{resourceTitle}}</div>
+    <div class="hits-s-links">
+        <div class="hits-s-links-box">
+            <a *ngFor="let link of navList" class="h-s-link" routerLink="{{link.linkRoute}}">{{link.linkName}}</a>
+        </div>
+    </div>
+</div>

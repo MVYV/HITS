@@ -1,0 +1,132 @@
+@use '../hits-variables' as hits-vars;
+
+@mixin centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin hitsNav {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+@mixin transitionStyle {
+    transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+}
+
+.hits-header {
+    width: 100vw;
+    height: 50px;
+    display: flex;
+    background-color: hits-vars.$darkColor;
+    color: hits-vars.$lightColor;
+    font-family: 'Verdana', sans-serif;
+
+    .hits-nav {
+        font-size: 24px;
+    }
+
+    .hits-cart {
+        font-size: 20px;
+    }
+
+    .hits-nav,
+    .hits-cart {
+        @include centered;
+        @include hitsNav;
+    }
+
+    .hits-title {
+        width: 250px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        text-transform: uppercase;
+    }
+
+    .hits-links {
+        width: calc(100vw - 300px);
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+
+        .h-link {
+            display: inline-block;
+            padding: 0 10px;
+            text-decoration: none;
+            text-transform: uppercase;
+            color: hits-vars.$lightColor;
+            font-size: 14px;
+        }
+    }
+}
+
+.hits-sidenav {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-flow: row wrap;
+    color: hits-vars.$lightColor;
+    font-family: 'Verdana', sans-serif;
+    z-index: 10000;
+    @include transitionStyle;
+
+    .hits-s-nav {
+        @include centered;
+        @include hitsNav;
+        font-size: 24px;
+        background-color: hits-vars.$darkColor;
+    }
+
+    .hits-s-title {
+        width: calc(100vw - 50px);
+        text-transform: uppercase;
+        @include centered;
+        background-color: hits-vars.$darkColor;
+    }
+
+    .hits-s-links {
+        width: 100vw;
+        height: calc(100vh - 52px);
+        background-color: hits-vars.$middleColor;
+        @include centered;
+        flex-flow: column;
+        border-top: 2px solid hits-vars.$lightColor;
+
+        .hits-s-links-box {
+            @include centered;
+            flex-flow: column wrap;
+
+            .h-s-link {
+                width: 100%;
+                text-decoration: none;
+                text-transform: uppercase;
+                color: hits-vars.$lightColor;
+                font-size: 20px;
+                position: relative;
+                left: 0;
+                padding: 5px 15px;
+                @include transitionStyle;
+
+                &:hover {
+                    left: 20px;
+                }
+            }
+        }
+    }
+}
+
+.sidenav-visible {
+    left: 0;
+}
+
+.sidenav-hidden {
+    left: -100vw;
+}

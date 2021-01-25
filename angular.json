@@ -1,0 +1,48 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "hits": {
+      "projectType": "library",
+      "root": "projects/hits",
+      "sourceRoot": "projects/hits/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/hits/tsconfig.lib.json",
+            "project": "projects/hits/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/hits/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/hits/src/test.ts",
+            "tsConfig": "projects/hits/tsconfig.spec.json",
+            "karmaConfig": "projects/hits/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/hits/tsconfig.lib.json",
+              "projects/hits/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "hits"
+}
