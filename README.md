@@ -53,5 +53,5 @@ export class TestComponent implements OnInit{
 `test.component.html`
 
 ```html
-<hits-header [navList]="listItems" [resourceTitle]="title"></hits-header>
+<lib-hits-header [navList]="listItems" [resourceTitle]="title"></lib-hits-header>
 ```
