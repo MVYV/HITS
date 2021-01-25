@@ -4,6 +4,8 @@ Library for e-commerce purpose. Start you business easier and faster.
 
 # How to use
 
+`app.module.ts`
+
 ```ts
 import { HitsModule } from 'angular-hits';
 
@@ -20,6 +22,9 @@ import { HitsModule } from 'angular-hits';
 })
 export class AppModule { }
 ```
+
+`test.component.ts`
+
 ```ts
 import { Component, OnInit } from '@angular/core';
 
@@ -45,6 +50,7 @@ export class TestComponent implements OnInit{
 }
 ```
 
+`test.component.html`
 
 ```html
 <hits-header [navList]="listItems" [resourceTitle]="title"></hits-header>
