@@ -10,15 +10,15 @@ Library for e-commerce purpose. Start you business easier and faster.
 import { HitsModule } from 'angular-hits';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    HitsModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+      AppComponent
+    ],
+    imports: [
+      BrowserModule,
+      HitsModule
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
 ```
