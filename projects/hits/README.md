@@ -1,24 +1,57 @@
-# Hits
+# Angular Hits
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.9.
+Library for e-commerce purpose. Start you business easier and faster.
 
-## Code scaffolding
+# How to use
 
-Run `ng generate component component-name --project hits` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project hits`.
-> Note: Don't forget to add `--project hits` or else it will be added to the default project in your `angular.json` file. 
+`app.module.ts`
 
-## Build
+```ts
+import { HitsModule } from 'angular-hits';
 
-Run `ng build hits` to build the project. The build artifacts will be stored in the `dist/` directory.
+@NgModule({
+    declarations: [
+        AppComponent
+    ],
+    imports: [
+        BrowserModule,
+        HitsModule
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
 
-## Publishing
+`test.component.ts`
 
-After building your library with `ng build hits`, go to the dist folder `cd dist/hits` and run `npm publish`.
+```ts
+import { Component, OnInit } from '@angular/core';
 
-## Running unit tests
+@Component({
+    selector: 'app-test',
+    templateUrl: './test.component.html',
+    styleUrls: ['./test.component.scss']
+})
+export class TestComponent implements OnInit{
+    public title = 'My Title';
+    public listItems = [
+        {
+            linkName: 'Kiesha',
+            linkRoute: '/kiesha'
+        }
+    ]
 
-Run `ng test hits` to execute the unit tests via [Karma](https://karma-runner.github.io).
+    constructor() {
+    }
+    
+    ngOnInit():void {
+    }
+}
+```
 
-## Further help
+`test.component.html`
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```html
+<lib-hits-header [navList]="listItems" [resourceTitle]="title"></lib-hits-header>
+```
